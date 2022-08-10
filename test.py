@@ -5,8 +5,6 @@ from streamlit_image_comparison import image_comparison
 import sys 
 sys.path.append('../')
 import dumpp as dd
-import warnings
-warnings.ignore_warnings()
 
 def masking_image(masking_list):
     options = st.multiselect(
@@ -50,7 +48,7 @@ elif radio == "Sfbay":
     masking_image(dd.masking_list)
 
 elif radio == "Uplode your own":
-    uploded_file = st.file_uploader("Upload your own image", type=["bin"])
+    uploded_file = st.file_uploader("Upload your own image", type=["bin"], accept_multiple_files = True)
     if uploded_file is not None:
         st.image(uploded_file)
         st.write("")
